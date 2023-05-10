@@ -1,7 +1,5 @@
-export default function Letras(props){
+export default function Letras(props) {
     return (
-        <div className="teclado">
-            <button className="letra" onClick={() => checkarLetra(props.letra)} disabled>{props.letra}</button>
-        </div>
+        <button className="letra" onClick={() => chutarLetra(props.letra)} disabled>{props.letra}</button>
     );
 }
