@@ -1,5 +1,5 @@
 export default function Letras(props) {
     return (
-        <button className="letra" onClick={() => chutarLetra(props.letra)} disabled>{props.letra}</button>
+        <button className="letra" onClick={props.chutar}>{props.letra}</button>
     );
 }
