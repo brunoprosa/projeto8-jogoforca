@@ -6,7 +6,7 @@ export default function PalavraSorteada(props) {
         color = "palavraSorteada red";
     }else color = "palavraSorteada black"
     return (
-        <div className={color}>
+        <div className={color} data-test="word">
             {props.palavra.map((l) => l)}
         </div>
     );
