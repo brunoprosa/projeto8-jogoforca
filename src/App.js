@@ -18,13 +18,33 @@ export default function App() {
   const [palavraVisivel, setPalavraVisivel] = useState([]);
   const [palavra, setPalavra] = useState([]);
   const [erros, setErros] = useState(0);
+  const [isAllDisabled, setIsAllDisabled] = useState(true);
+  const [indexDisabled, setIndexDisabled] = useState([]);
+  const [win, setWin] = useState(false);
+  const [loss, setLoss] = useState(false);
 
   return (
     <div className="app">
-      <Jogo erro={imagemErros[erros]} escolher={() => escolherPalavra(setPalavra, setPalavraVisivel)} palavra={palavraVisivel} />
+      <Jogo
+        erro={imagemErros[erros]}
+        escolher={() => escolherPalavra(
+          setPalavra, setPalavraVisivel, setErros, setIsAllDisabled, setIndexDisabled, setWin, setLoss
+          )}
+        palavra={palavraVisivel}
+        loss = {loss}
+        win = {win} 
+        />
       <div className="ajuste">
         <div className="teclado">
-          {alfabeto.map((l) => <Letras key={l} letra={l} chutar={() => chutarLetra(l, palavra, palavraVisivel, setPalavraVisivel, erros, setErros)} />)}
+          {alfabeto.map((l, i) => <Letras
+            key={l}
+            letra={l}
+            index={i}
+            indexDisabled={indexDisabled}
+            isAllDisabled={isAllDisabled}
+            chutar={() => chutarLetra(
+              l, i, palavra, palavraVisivel, setPalavraVisivel, erros, setErros, indexDisabled, setIndexDisabled, setIsAllDisabled, setLoss, setWin
+              )} />)}
         </div>
       </div>
     </div>

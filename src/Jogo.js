@@ -5,7 +5,7 @@ export default function Jogo(props) {
         <div className="jogo">
             <img src={props.erro} />
             <button className="escolherPalavra" onClick={props.escolher} > Escolher palavra </button>
-            <PalavraSorteada palavra = {props.palavra} />
+            <PalavraSorteada palavra = {props.palavra} win = {props.win} loss = {props.loss} />
         </div>
     );
 }
